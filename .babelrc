@@ -1,0 +1,5 @@
+{
+	"presets": ["next/babel"],
+	//eslint-ignore-next-line
+	"plugins": [["effector/babel-plugin", { "importName": ["effector-next"] }]]
+}

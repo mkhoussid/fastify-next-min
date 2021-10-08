@@ -3,7 +3,9 @@ import { ThemeProvider } from '@emotion/react';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import AppWrapper from '../components/AppWrapper';
 import { palette } from 'src/theme';
-import { GetServerSideProps } from 'next';
+import { withHydrate } from 'effector-next';
+
+const enhance = withHydrate();
 
 const App = React.memo(({ Component, ...pageProps }: AppProps) => {
 	return (
@@ -13,4 +15,4 @@ const App = React.memo(({ Component, ...pageProps }: AppProps) => {
 	);
 });
 
-export default App;
+export default enhance(App);

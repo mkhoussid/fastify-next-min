@@ -1,8 +1,9 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { withFork } from 'effector-next';
 import { version } from 'package.json';
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang='en'>
@@ -29,6 +30,10 @@ export default class MyDocument extends Document {
 		);
 	}
 }
+
+const enhance = withFork({ debug: false });
+
+export default enhance(MyDocument);
 
 MyDocument.getInitialProps = async (ctx) => {
 	const originalRenderPage = ctx.renderPage;
